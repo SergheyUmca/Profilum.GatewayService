@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option csharp_namespace = "Profilum.UserService";
+
+package Profilum.UserService;
+
+// The user service definition.
+service UserService {
+
+  rpc GetAllUsers (Empty) returns (stream UserFullReply);
+  
+  rpc GetUser (UserGetRequest) returns (UserFullReply);
+
+  rpc CreateUser (UserCreateRequest) returns (UserFullReply);
+
+  rpc UpdateUser (UserCreateRequest) returns (UserFullReply);
+
+  rpc DeleteUser (UserGetRequest) returns (UserReply);
+
+  rpc DeleteAllUsers (Empty) returns (UserReply);
+}
+
+message Empty {
+}
+
+message UserGetRequest {
+  int64 id = 1;
+}
+
+message UserCreateRequest {
+	int64 id = 1;
+	string name = 2;
+}
+
+message UserReply {
+  int32 replyStateCode = 1;
+}
+
+message UserFullReply {
+  int32 replyStateCode = 1;
+  int64 id = 2;
+  string name = 3;
+}
