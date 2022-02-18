@@ -1,4 +1,5 @@
-﻿namespace Profilum.AccountService.Common.BaseModels
+﻿// ReSharper disable ConstantNullCoalescingCondition
+namespace Profilum.AccountService.Common.BaseModels
 {
 	// ReSharper disable once ClassNeverInstantiated.Global
 	public class AppResponse
@@ -12,9 +13,10 @@
 
 			public ResponseCodes ResultCode { get; protected init; } = ResponseCodes.SUCCESS;
 
-			protected List<CustomError> Errors { get; }
+			protected List<CustomError> Errors { get; set; }
 
-			public string? LastResultMessage => Errors.LastOrDefault()?.ResultMessage;
+			// ReSharper disable once ConstantConditionalAccessQualifier
+			public string? LastResultMessage => Errors?.LastOrDefault()?.ResultMessage;
 		}
 
 		public class Response<T> : Response
@@ -33,6 +35,8 @@
 			{
 				ResultCode = responseCode;
 
+				Errors ??= new List<CustomError>();
+				
 				Errors.Add(new CustomError
 				{
 					ResponseCode = responseCode,
@@ -47,6 +51,8 @@
 			{
 				ResultCode = responseCode;
 
+				Errors ??= new List<CustomError>();
+				
 				Errors.Add(new CustomError
 				{
 					ResponseCode = responseCode,

@@ -21,7 +21,7 @@ namespace Profilum.AccountService.Api.AutoFacModules
                 new NamedParameter("dbName", Settings.Database)
             };
 
-            builder.RegisterType<UserHandler>().As<IUserHandler>().WithParameters(parameters);
+            builder.RegisterType<AccountHandler>().As<IAccountHandler>().WithParameters(parameters);
         }
 
         
