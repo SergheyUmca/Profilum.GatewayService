@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "Profilum.AccountService";
+
+package Profilum.AccountService;
+
+// The user service definition.
+service AccountService {
+
+  rpc GetAllAccounts (EmptyRequest) returns (stream AccountFullReply);
+
+  rpc GetAccount (AccountGetRequest) returns (AccountFullReply);
+
+  rpc CreateAccount (AccountCreateRequest) returns (AccountFullReply);
+
+  rpc UpdateAccount (AccountCreateRequest) returns (AccountFullReply);
+
+  rpc DeleteAccount (AccountGetRequest) returns (EmptyReply);
+
+  rpc DeleteAllAccounts (EmptyRequest) returns (EmptyReply);
+}
+
+message EmptyRequest {
+}
+
+message AccountGetRequest {
+  int64 id = 1;
+}
+
+message AccountCreateRequest {
+  int64 id = 1;
+  string userId = 2;
+  string AccountNumber = 3;
+}
+
+message EmptyReply {
+  int32 replyStateCode = 1;
+}
+
+message AccountFullReply {
+  int32 replyStateCode = 1;
+  int64 id = 2;
+  string userId = 3;
+  string AccountNumber = 4;
+}

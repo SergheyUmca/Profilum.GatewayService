@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Profilum.GatewayService.DAL</RootNamespace>
+    </PropertyGroup>
+    
+
+    <ItemGroup>
+      <PackageReference Include="Confluent.Kafka" Version="1.8.2" />
+      <PackageReference Include="Confluent.SchemaRegistry.Serdes.Avro" Version="1.8.2" />
+      <PackageReference Include="Google.Protobuf" Version="3.19.4" />
+      <PackageReference Include="Grpc.Net.Client" Version="2.42.0" />
+      <PackageReference Include="Grpc.Tools" Version="2.44.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.3" />
+      <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="**\*.proto" GrpcServices="Client" />
+        <Protobuf Include="**\*.proto" GrpcServices="Client" />
+<!--        <Protobuf Include="Connectors/GrpcConnectors/Protos/userService.proto" GrpcServices="Client" />-->
+<!--        <Protobuf Include="Connectors/GrpcConnectors/Protos/accountService.proto" GrpcServices="Client" />-->
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Profilum.GatewayService.Common\Profilum.GatewayService.Common.csproj" />
+    </ItemGroup>
+
+</Project>

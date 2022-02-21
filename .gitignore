@@ -7,3 +7,11 @@ Profilum.AccountService.DAL/obj/
 Profilum.AccountService.DAL/bin/
 Profilum.AccountService.BLL/bin/
 Profilum.AccountService.Api/appsettings.json
+Profilum.GatewayService.Api/bin/
+Profilum.GatewayService.Api/obj/
+Profilum.GatewayService.BLL/bin/
+Profilum.GatewayService.BLL/obj/
+Profilum.GatewayService.Common/bin/
+Profilum.GatewayService.Common/obj/
+Profilum.GatewayService.DAL/bin/
+Profilum.GatewayService.DAL/obj/
